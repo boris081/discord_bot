@@ -12,9 +12,9 @@ bot = commands.Bot(command_prefix= '[')
 async def on_ready():
     print(">> Bot is online <<")
 
-for Filename in os.listdir('./cmds'):
-    if Filename.endswith('.py'):
-        bot.load_extension(F'cmds.{Filename[:-3]}')
+for filename in os.listdir('./cmds'):
+    if filename.endswith('.py'):
+        bot.load_extension(f'cmds.{filename[:-3]}')
 
 if __name__ == "__main__":
     bot.run(jdata['TOKEN'])
