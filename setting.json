@@ -1,4 +1,8 @@
 {
-    "TOKEN":"NjQzMDQwMjg4NjIwNjc1MDcy.XcgY2A.J8lkG_lg-J0SKTuHGBf7ulB3fiY",
-    "pic":"D:\\work_space\\python\\boris_bot\\pic\\1.jpg"
+    "pic_random":["D:\\work_space\\python\\boris_bot\\pic\\1.jpg", "D:\\work_space\\python\\boris_bot\\pic\\2.jpg", "D:\\work_space\\python\\boris_bot\\pic\\3.jpg", "D:\\work_space\\python\\boris_bot\\pic\\4.jpg"],
+    "pic":"D:\\work_space\\python\\boris_bot\\pic\\1.jpg",
+    "pic2":"D:\\work_space\\python\\boris_bot\\pic\\2.jpg",
+    "pic3":"D:\\work_space\\python\\boris_bot\\pic\\3.jpg",
+    "pic4":"D:\\work_space\\python\\boris_bot\\pic\\4.jpg",
+    "pic5":"D:\\work_space\\python\\boris_bot\\pic\\5.jpg"
 }
