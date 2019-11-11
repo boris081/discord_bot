@@ -37,8 +37,7 @@ class React(Cog_Extension):
 
     @commands.command()
     async def GO(self, ctx):
-        random_pic = random.choice(jdata['pic5'])  
-        pic = discord.File(random_pic)
+        pic = discord.File(jdata['pic5'])
         await ctx.send(file=pic)  
 
 def setup(bot):
