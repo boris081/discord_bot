@@ -38,7 +38,7 @@ class React(Cog_Extension):
     @commands.command()
     async def GO(self, ctx):
         pic = discord.File(jdata['pic5'])
-        await ctx.send(file=pic)  
+        await ctx.send(file=pic)
 
 def setup(bot):
     bot.add_cog(React(bot))
