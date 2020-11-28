@@ -1,1 +1,1 @@
-# boris_bot
+# discord_bot
