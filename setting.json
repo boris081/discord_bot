@@ -8,11 +8,5 @@
     "pic3":"D:\\work_space\\python\\boris_bot\\pic\\3.jpg",
     "pic4":"D:\\work_space\\python\\boris_bot\\pic\\4.jpg",
     "pic5":"D:\\work_space\\python\\boris_bot\\pic\\5.jpg",
-    "austonAndAlice":"D:\\work_space\\python\\boris_bot\\pic\\austonAndAlice.png",
-    "kill_string":[
-        "%s往前進攻時左腳踩到一塊樂高積木受到 %d 點傷害",
-        "附近有人胡亂開槍射中%s造成 %d 點傷害",
-        "一輛卡車急駛而來撞飛%s，造成 %d 點傷害"
-    ],
-    "count":0
+    "austonAndAlice":"D:\\work_space\\python\\boris_bot\\pic\\austonAndAlice.png"
 }
