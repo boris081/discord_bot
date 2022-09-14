@@ -1,6 +1,7 @@
 #localfile
 json/key.json
 json/serviceAccount.json
+db/member.sqlite
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
