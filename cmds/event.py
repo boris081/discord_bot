@@ -46,7 +46,7 @@ class Event(Cog_Extension):
       #   channel = msg.channel
       #   await channel.send('https://media.discordapp.net/attachments/841352984340332574/894215200272678942/d8299814a67b0da90d4df3de960f92a2.gif')
       #   print('接龍大成功')
-        
+
       # with open('point.json', 'r+', encoding='utf8') as jfile:
       #   jpoint = json.load(jfile)
       #   username = str(msg.author)
@@ -63,7 +63,7 @@ class Event(Cog_Extension):
       #     jfile.seek(0)
       #     json.dump(jpoint, jfile)
       #     return
-      
+
 
 def setup(bot):
     bot.add_cog(Event(bot))
