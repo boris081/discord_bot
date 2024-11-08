@@ -1,6 +1,6 @@
 ## update 2024/11/02
 # optimize on_message_delete function
-import keep_alive
+# import keep_alive
 import discord
 from discord.ext import commands
 import os
@@ -44,6 +44,16 @@ async def on_message_delete(message):
     await channel.send(s)
     await channel.send("------------------------------------")
 
+@bot.event
+async def on_message(message):
+  channel = bot.get_channel(1304407628549586995)  #圖片監視器
+  s = f"From \"{message.guild.name} -> {message.channel}\"\n"
+  s += f"User \"{message.author.global_name}({message.author})\" sned a image:\n"
+
+  if message.attachments:
+    s += f"{message.attachments[0].url}\n"
+    await channel.send(s)
+    await channel.send("------------------------------------")
 
 # cooldown error-handling
 @bot.event
@@ -126,5 +136,5 @@ for filename in os.listdir('./cmds'):
     bot.load_extension(F'cmds.{filename[:-3]}')
 
 if __name__ == "__main__":
-  keep_alive.keep_alive()
+  # keep_alive.keep_alive()
   bot.run(jdata['TOKEN'])
