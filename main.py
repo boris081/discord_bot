@@ -5,7 +5,14 @@ import discord
 from discord.ext import commands
 import os
 import json
+import io 
+import aiohttp
+import requests
+import datetime
 from PIL import Image, ImageDraw, ImageFont
+
+tzone = datetime.timezone(datetime.timedelta(hours=8))
+current_time = datetime.datetime.now(tz=tzone)
 
 with open('json/key.json', 'r', encoding='utf8') as jfile:
   jdata = json.load(jfile)
@@ -27,22 +34,16 @@ async def on_ready():
 @bot.event
 async def on_message_delete(message):
   channel = bot.get_channel(821324099791093770)  #監視器
-  # channel = bot.get_channel(782312791615733790) 艦娘許願池頻道
-  # 662554422471294997 閒聊
-  # print(message)
   s = f"From \"{message.guild.name} -> {message.channel}\"\n"
   s += f"User \"{message.author.global_name}({message.author})\" delete a message:\n"
-
   if message.attachments:
-    s += f"{message.attachments[0].url}\n"
-    # print(s)
-    await channel.send(s)
-    await channel.send("------------------------------------")
+    body = f"{message.attachments[0].url}\n"
+    embed = discord.Embed(title=s, description=body, timestamp=current_time, colour=discord.Colour.dark_orange())
+    await channel.send(embed=embed)
   else:
-    s += f"{message.content}\n"
-    # print(s)
-    await channel.send(s)
-    await channel.send("------------------------------------")
+    body = f"{message.content}\n"
+    embed = discord.Embed(title=s, description=body, timestamp=current_time, colour=discord.Colour.dark_orange())
+    await channel.send(embed=embed)
 
 @bot.event
 async def on_message(message):
@@ -50,10 +51,13 @@ async def on_message(message):
   s = f"From \"{message.guild.name} -> {message.channel}\"\n"
   s += f"User \"{message.author.global_name}({message.author})\" sned a image:\n"
 
-  if message.attachments:
-    s += f"{message.attachments[0].url}\n"
-    await channel.send(s)
-    await channel.send("------------------------------------")
+  if message.attachments and message.author!=bot.user:
+    response = requests.get(message.attachments[0].url)
+    image_data = io.BytesIO(response.content)
+    file = discord.File(image_data, filename='image.png')
+    embed = discord.Embed(title=s, timestamp=current_time, colour=discord.Colour.dark_orange()) 
+    embed.set_image(url="attachment://image.png")
+    await channel.send(embed=embed, file=file)
 
 # cooldown error-handling
 @bot.event
