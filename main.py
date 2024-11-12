@@ -1,6 +1,5 @@
 ## update 2024/11/02
 # optimize on_message_delete function
-# import keep_alive
 import discord
 from discord.ext import commands
 import os
@@ -23,13 +22,7 @@ bot = commands.Bot(command_prefix='>', intents=intents)
 
 @bot.event
 async def on_ready():
-  # channel = bot.get_channel(782312791615733790)  #艦娘許願池頻道
-  channel = bot.get_channel(662554422471294997)  #艦娘閒聊頻道
-  # channel = bot.get_channel(781920817088036904) #私人ㄐㄐ人頻道
-  # for i in range(5):
-  # await channel.send("我是第四個妓安")
   print('We have logged in as {0.user}'.format(bot))
-
 
 @bot.event
 async def on_message_delete(message):
@@ -68,8 +61,7 @@ async def on_command_error(ctx, error):
 
 @bot.command()
 async def hi(ctx):
-  await ctx.send('hello')  # 发送 'hello' 消息给用户
-
+  await ctx.send('hello')
 
 @bot.command()
 async def 破麻(ctx):
@@ -133,12 +125,5 @@ async def IMAGE(ctx, str, *args):
   img.save('re_magic.png')
   await ctx.send(file=discord.File('re_magic.png'))
 
-
-# 搜索有cmds底下文件
-for filename in os.listdir('./cmds'):
-  if filename.endswith('.py'):  # 判斷結尾是否為.py
-    bot.load_extension(F'cmds.{filename[:-3]}')
-
 if __name__ == "__main__":
-  # keep_alive.keep_alive()
   bot.run(jdata['TOKEN'])

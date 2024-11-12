@@ -1,0 +1,8 @@
+discord.py
+black
+flake8
+pillow
+requests
+aiohttp
+aiosqlite
+python-dotenv
